@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h1>Hello {{ twitter }}</h1>
+  <h2>{{ name }}</h2>
+  <input type="text" [value]="name">
+  <button ion-button (click)="clickedButton()">Boton</button>
+
+  <input type="text" [value]="name" (input)="name = $event.target.value">
+  <input type="text" [(ngModel)]="name">
+
+  <p #myVar>Hola</p>
+  <button ion-button (click)="myVar.innerHTML = 'Cambiar'">change</button>
+
+  <button ion-button *ngIf="name == 'nicolas'">Si es nicolas</button>
+  <button ion-button *ngIf="name != 'nicolas'">No es nicolas</button>
+
+  <button ion-button (click)="names = []">vaciar</button>
+   <button ion-button (click)="addName('monica')">add</button>
+
+  <ul>
+    <li *ngIf="names.length == 0">No hay nada</li>
+    <li *ngFor="let item of names">{{ item }}</li>
+  </ul>
+</ion-content>
